@@ -9,7 +9,10 @@ func CalculateBMI(weightKg, heightCm float64) float64 {
 	// TODO: реализуй функцию
 	// Не забудь перевести сантиметры в метры!
 	// Формула: ИМТ = вес (кг) / рост (м)²
-	return 0
+
+	bmi := weightKg / ((heightCm / 100) * (heightCm / 100))
+
+	return bmi
 }
 
 // InterpretBMI возвращает категорию по значению ИМТ
@@ -19,7 +22,17 @@ func InterpretBMI(bmi float64) string {
 	// 18.5 - 24.9: "Норма"
 	// 25.0 - 29.9: "Избыточный вес"
 	// >= 30: "Ожирение"
-	return ""
+
+	switch {
+	case bmi < 18.5:
+		return "Недостаточный вес"
+	case bmi < 24.9:
+		return "Норма"
+	case bmi < 30:
+		return "Избыточный вес"
+	default:
+		return "Ожирение"
+	}
 }
 
 func main() {
@@ -33,4 +46,19 @@ func main() {
 	// - Недостаточный вес
 	// - Избыточный вес
 	// - Ожирение
+
+	bmi2 := CalculateBMI(40, 175)
+	fmt.Printf("Вес: 40 кг, Рост: 175 см\n")
+	fmt.Printf("ИМТ: %.1f\n", bmi2)
+	fmt.Printf("Категория: %s\n\n", InterpretBMI(bmi2))
+
+	bmi3 := CalculateBMI(90, 175)
+	fmt.Printf("Вес: 90 кг, Рост: 175 см\n")
+	fmt.Printf("ИМТ: %.1f\n", bmi3)
+	fmt.Printf("Категория: %s\n\n", InterpretBMI(bmi3))
+
+	bmi4 := CalculateBMI(100, 175)
+	fmt.Printf("Вес: 90 кг, Рост: 175 см\n")
+	fmt.Printf("ИМТ: %.1f\n", bmi4)
+	fmt.Printf("Категория: %s\n\n", InterpretBMI(bmi4))
 }
