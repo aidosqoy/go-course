@@ -12,14 +12,18 @@ type Fahrenheit float64
 func CelsiusToFahrenheit(c Celsius) Fahrenheit {
 	// TODO: реализуй функцию
 	// Формула: F = C × 9/5 + 32
-	return 0
+	f := Fahrenheit(c*9/5 + 32.0)
+
+	return f
 }
 
 // FahrenheitToCelsius конвертирует Фаренгейт в Цельсий
 func FahrenheitToCelsius(f Fahrenheit) Celsius {
 	// TODO: реализуй функцию
 	// Формула: C = (F - 32) × 5/9
-	return 0
+	c := Celsius((f - 32) * 5 / 9)
+
+	return c
 }
 
 func main() {
@@ -34,7 +38,19 @@ func main() {
 	fmt.Printf("%.1f°F = %.1f°C\n", f2, c2)
 
 	// TODO: Добавь проверку остальных тестовых значений:
+
 	// 0°C = 32°F
+	c3 := Celsius(0)
+	f3 := CelsiusToFahrenheit(c3)
+	fmt.Printf("%.1f°C = %.1f°F\n", c3, f3)
+
 	// -40°C = -40°F
+	c4 := Celsius(-40)
+	f4 := CelsiusToFahrenheit(c4)
+	fmt.Printf("%.1f°C = %.1f°F\n", c4, f4)
+
 	// 37°C = 98.6°F
+	c5 := Celsius(37)
+	f5 := CelsiusToFahrenheit(c4)
+	fmt.Printf("%.1f°C = %.1f°F\n", c5, f5)
 }
