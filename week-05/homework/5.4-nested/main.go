@@ -24,6 +24,10 @@ func PrintFullInfo(p Person) {
 	fmt.Printf("Имя: %s\n", p.Name)
 	fmt.Printf("Возраст: %d\n", p.Age)
 	// TODO: добавь остальные поля
+	fmt.Printf("Email: %s\n", p.Email)
+	fmt.Printf("City: %s\n", p.Address.City)
+	fmt.Printf("Street: %s\n", p.Address.Street)
+	fmt.Printf("Building: %s\n", p.Address.Building)
 }
 
 func main() {
