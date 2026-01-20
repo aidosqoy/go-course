@@ -23,10 +23,10 @@ func main() {
 	// TODO: Добавь остальные типы:
 	// - uint, uint8, uint16, uint32, uint64
 	var ui uint
-	var ui8 uint
-	var ui16 uint
-	var ui32 uint
-	var ui64 uint
+	var ui8 uint8
+	var ui16 uint16
+	var ui32 uint32
+	var ui64 uint64
 
 	fmt.Printf("uint: %d\n", ui)
 	fmt.Printf("uint8: %d\n", ui8)
