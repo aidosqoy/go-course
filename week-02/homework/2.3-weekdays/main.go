@@ -19,7 +19,7 @@ const (
 func IsWeekend(day int) bool {
 	// TODO: реализуй функцию
 
-	if day == 6 || day == 7 {
+	if day == Saturday || day == Sunday {
 		return true
 	}
 
