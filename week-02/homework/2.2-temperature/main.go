@@ -51,6 +51,6 @@ func main() {
 
 	// 37°C = 98.6°F
 	c5 := Celsius(37)
-	f5 := CelsiusToFahrenheit(c4)
+	f5 := CelsiusToFahrenheit(c5)
 	fmt.Printf("%.1f°C = %.1f°F\n", c5, f5)
 }
