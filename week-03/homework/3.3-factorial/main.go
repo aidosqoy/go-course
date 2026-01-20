@@ -17,8 +17,17 @@ func Factorial(n int) (int, error) {
 		return 0, errors.New("факториал отрицательного числа не определён")
 	}
 
+	if n == 0 {
+		return 1, nil
+	}
+
+	prev, err := Factorial(n - 1)
+	if err != nil {
+		return 0, err
+	}
+
+	return prev * n, nil
 	// TODO: вычисли факториал
-	return 0, nil
 }
 
 func main() {
