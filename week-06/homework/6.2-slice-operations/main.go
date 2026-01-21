@@ -1,12 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // AppendUnique добавляет элемент в слайс только если его там ещё нет
 func AppendUnique(slice []int, value int) []int {
 	// TODO: реализуй функцию
 	// Проверь, есть ли value в slice
 	// Если нет — добавь через append
+
+	check := false
+	for i := 0; i < len(slice); i++ {
+		if slice[i] == value {
+			check = true
+		}
+	}
+
+	if check == false {
+		slice = append(slice, value)
+	}
+
 	return slice
 }
 
@@ -15,6 +29,16 @@ func RemoveAt(slice []int, index int) []int {
 	// TODO: реализуй функцию
 	// Проверь, что index в допустимых границах
 	// Используй append для соединения частей до и после index
+	if index < len(slice) {
+		var slice2 []int
+		for i, v := range slice {
+			if i != index {
+				slice2 = append(slice2, v)
+			}
+		}
+		return slice2
+	}
+
 	return slice
 }
 
@@ -22,6 +46,15 @@ func RemoveAt(slice []int, index int) []int {
 func RemoveValue(slice []int, value int) []int {
 	// TODO: реализуй функцию
 	// Найди индекс value и используй RemoveAt
+	var index int
+	for i, _ := range slice {
+		if slice[i] == value {
+			index = i
+		}
+	}
+
+	slice = RemoveAt(slice, index)
+
 	return slice
 }
 
@@ -29,7 +62,11 @@ func RemoveValue(slice []int, value int) []int {
 func SumAll(nums ...int) int {
 	// TODO: реализуй функцию
 	// nums — это слайс, пройди по нему и сложи
-	return 0
+	var sum int
+	for _, v := range nums {
+		sum += v
+	}
+	return sum
 }
 
 func main() {
