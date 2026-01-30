@@ -6,14 +6,28 @@ import "fmt"
 func FilterEven(nums []int) []int {
 	// TODO: реализуй функцию
 	// Создай новый слайс и добавляй числа, которые делятся на 2
-	return nil
+	var evenNums []int
+	for _, v := range nums {
+		if v%2 == 0 {
+			evenNums = append(evenNums, v)
+		}
+	}
+
+	return evenNums
 }
 
 // FilterPositive возвращает слайс только с положительными числами
 func FilterPositive(nums []int) []int {
 	// TODO: реализуй функцию
 	// Положительные — это числа > 0
-	return nil
+	var positiveNums []int
+	for _, v := range nums {
+		if v > 0 {
+			positiveNums = append(positiveNums, v)
+		}
+	}
+
+	return positiveNums
 }
 
 // Double возвращает новый слайс, где каждый элемент умножен на 2
@@ -21,14 +35,26 @@ func Double(nums []int) []int {
 	// TODO: реализуй функцию
 	// Создай новый слайс той же длины
 	// Заполни его удвоенными значениями
-	return nil
+
+	doubleNums := make([]int, len(nums))
+	for i, v := range nums {
+		doubleNums[i] = v * 2
+	}
+
+	return doubleNums
 }
 
 // Reverse возвращает перевёрнутый слайс
 func Reverse(nums []int) []int {
 	// TODO: реализуй функцию
 	// Создай новый слайс и заполни в обратном порядке
-	return nil
+
+	var reverseSlice []int
+	for i := len(nums) - 1; i >= 0; i-- {
+		reverseSlice = append(reverseSlice, nums[i])
+	}
+
+	return reverseSlice
 }
 
 func main() {

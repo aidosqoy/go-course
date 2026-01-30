@@ -7,7 +7,16 @@ func CreateMatrix(rows, cols, value int) [][]int {
 	// TODO: реализуй функцию
 	// Создай слайс слайсов нужного размера
 	// Заполни каждый элемент значением value
-	return nil
+
+	matrix := make([][]int, rows)
+	for i := 0; i < rows; i++ {
+		matrix[i] = make([]int, cols)
+		for j := 0; j < cols; j++ {
+			matrix[i][j] = value
+		}
+	}
+
+	return matrix
 }
 
 // PrintMatrix выводит матрицу в читаемом формате
@@ -15,7 +24,15 @@ func PrintMatrix(matrix [][]int) {
 	// TODO: реализуй функцию
 	// Выведи каждую строку на отдельной линии
 	// Элементы разделяй пробелами или табуляцией
-	fmt.Println(matrix)
+	for _, row := range matrix {
+		for i, value := range row {
+			if i > 0 {
+				fmt.Print(" ")
+			}
+			fmt.Print(value)
+		}
+		fmt.Println()
+	}
 }
 
 // Transpose возвращает транспонированную матрицу
@@ -23,14 +40,40 @@ func Transpose(matrix [][]int) [][]int {
 	// TODO: реализуй функцию
 	// Если исходная матрица M×N, результат будет N×M
 	// Элемент [i][j] становится [j][i]
-	return nil
+	if len(matrix) == 0 {
+		return [][]int{}
+	}
+
+	rows := len(matrix)
+	cols := len(matrix[0])
+
+	result := make([][]int, cols)
+	for i := 0; i < cols; i++ {
+		result[i] = make([]int, rows)
+	}
+
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			result[j][i] = matrix[i][j]
+		}
+	}
+
+	return result
 }
 
 // SumMatrix возвращает сумму всех элементов матрицы
 func SumMatrix(matrix [][]int) int {
 	// TODO: реализуй функцию
 	// Пройди по всем строкам и столбцам
-	return 0
+	sum := 0
+
+	for _, row := range matrix {
+		for _, value := range row {
+			sum += value
+		}
+	}
+
+	return sum
 }
 
 func main() {
