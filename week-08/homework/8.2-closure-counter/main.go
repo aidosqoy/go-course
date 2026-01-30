@@ -8,8 +8,10 @@ func Counter() func() int {
 	// TODO: реализуй функцию
 	// Создай переменную count
 	// Верни функцию, которая увеличивает и возвращает count
+	count := 0
 	return func() int {
-		return 0
+		count++
+		return count
 	}
 }
 
@@ -19,8 +21,10 @@ func Accumulator(initial int) func(int) int {
 	// TODO: реализуй функцию
 	// Создай переменную sum = initial
 	// Верни функцию, которая прибавляет к sum и возвращает результат
+	sum := initial
 	return func(x int) int {
-		return 0
+		sum += x
+		return sum
 	}
 }
 
@@ -30,8 +34,13 @@ func Fibonacci() func() int {
 	// TODO: реализуй функцию
 	// Храни два предыдущих числа
 	// При каждом вызове вычисляй следующее
+	previous := 0
+	current := 1
 	return func() int {
-		return 0
+		next := previous
+		previous = current
+		current = next + previous
+		return next
 	}
 }
 
