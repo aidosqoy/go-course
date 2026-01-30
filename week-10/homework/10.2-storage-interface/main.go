@@ -72,9 +72,9 @@ func (s *SliceStorage) Set(key, value string) {
 	// TODO: реализуй метод
 	// Если ключ существует — обнови значение
 	// Иначе — добавь новую пару
-	for _, v := range s.items {
-		if key == v.Key {
-			v.Value = value
+	for i, _ := range s.items {
+		if s.items[i].Key == key {
+			s.items[i].Value = value
 			return
 		}
 	}
@@ -101,7 +101,7 @@ func (s *SliceStorage) Delete(key string) {
 	// TODO: реализуй метод
 	for i, v := range s.items {
 		if v.Key == key {
-			s.items = append(s.items[:i], s.items[:i+1]...)
+			s.items = append(s.items[:i], s.items[i+1:]...)
 		}
 	}
 }
