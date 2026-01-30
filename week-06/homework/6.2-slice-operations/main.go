@@ -29,7 +29,7 @@ func RemoveAt(slice []int, index int) []int {
 	// TODO: реализуй функцию
 	// Проверь, что index в допустимых границах
 	// Используй append для соединения частей до и после index
-	if index < 0 || index > len(slice) {
+	if index < 0 || index >= len(slice) {
 		return slice
 	}
 
@@ -40,11 +40,16 @@ func RemoveAt(slice []int, index int) []int {
 func RemoveValue(slice []int, value int) []int {
 	// TODO: реализуй функцию
 	// Найди индекс value и используй RemoveAt
-	var index int
+	index := -1
 	for i, _ := range slice {
 		if slice[i] == value {
 			index = i
+			break
 		}
+	}
+
+	if index == -1 {
+		return slice
 	}
 
 	slice = RemoveAt(slice, index)
